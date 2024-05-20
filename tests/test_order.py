@@ -33,13 +33,16 @@ class TestOrder:
         response = Order.create_order(ingredients, token)
         assert response.status_code == result
 
-    @pytest.mark.parametrize("token, error_code", [
-        ["with_token", 200],
-        ["without_token", 401]
-    ])
-    @allure.title("Получение списка заказов. Успех/Неудача")
-    def test_get_orders(self, new_user, token, error_code):
-        user_token = new_user[0].json()["accessToken"] if token == "with_token" else ""
+    @allure.title("Получение списка заказов с токеном. Успех")
+    def test_get_orders_success(self, new_user):
+        user_token = new_user[0].json()["accessToken"]
 
         response = Order.get_orders(user_token)
-        assert response.status_code == error_code
+        assert response.status_code == 200
+
+    @allure.title("Получение списка заказов без токена. Неудача")
+    def test_get_orders(self):
+        user_token = ""
+
+        response = Order.get_orders(user_token)
+        assert response.status_code == 401

@@ -13,11 +13,11 @@
 
 ### Запуск автотестов
 
-**Установка зависимостей**
+**Установка зависимостей **
 
 > `$ pip install -r requirements.txt`
 
 #### Запуск тестов
 `pytest tests/ --alluredir=allure_results`
 #### Запуск отчетности allure
-`allure serve allure_results`
+`allure serve allure_results` 

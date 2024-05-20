@@ -8,7 +8,7 @@ class EndPoints:
     # "password": "password",
     # "name": "Username"}
     login_user      = test_url + '/api/auth/login'  # post {"email": "", "password": ""}
-    get_user_info   = test_url + '/api/auth/user'  # GET
+    get_user_info   = test_url + '/api/auth/user'  # GET   урлы одинаковые а методы разные. Так удобнее
     update_user     = test_url + '/api/auth/user'  # PATCH
     delete_user     = test_url + '/api/auth/user'  # DELETE
     get_all_orders  = test_url + '/api/orders/all'  # GET
